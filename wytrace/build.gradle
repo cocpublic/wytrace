@@ -1,6 +1,6 @@
 plugins {
     id 'com.android.library'
-    id 'maven-publish'
+    id 'com.bzl.plugins.publish'
 }
 
 android {
@@ -8,7 +8,7 @@ android {
     ndkVersion "23.2.8568313"
 
     defaultConfig {
-        minSdk 22
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
@@ -48,28 +48,6 @@ android {
     buildFeatures {
         prefab true
     }
-}
-
-publishing {
-    publications {
-        aar(MavenPublication) {
-            groupId 'com.wy.lib'
-            artifactId 'wytrace'
-            version '1.0.1'
-            // 打包 aar 文件
-            artifact("$buildDir/outputs/aar/wytrace-release.aar")
-        }
-    }
-//    repositories {
-//        maven {
-//            // 配置 Maven 仓库信息
-//            url mavenRepositoryUrl
-//            credentials {
-//                username mavenRepositoryUsername
-//                password mavenRepositoryPassword
-//            }
-//        }
-//    }
 }
 
 
